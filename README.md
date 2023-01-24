@@ -52,24 +52,29 @@ $$ N(Classification_run) = (Image_size / patch_size) - padding_area $$
 $$ padding_area =  2 * patch_size * (w + y + 2) $$
 
 ## RESULT
-![picture](screenshots/result_trace.png) </br>
-Figure 3. Trace of voting </br>
-<p aling='justfy'> Figure 3 shows the trace of voting which shows where voting algorithm is applied. Shown in Figure 3, voting was happened in some ambiguous area not all area. </p>
+|Threshold-0.7     |Threshold-0.8       |
+|------------------|--------------------|
+|![picture](screenshots/result-trace-07.png)|![picture](screenshots/result-trace-08.png)|
 
-![picture](screenshots/result_trace.png) </br>
+Figure 3. Trace of voting at threshold 0.7 and 0.8 </br>
+
+<p aling='justfy'> Figure 3 shows the trace of voting which shows where voting algorithm is happened. Shown in Figure 3, voting was happened in some ambiguous area not all area. With the higher threshold, the more voting is happened. </p>
+
+![picture](screenshots/result_change.png) </br>
 Table 3. Change in classification result before and after voting. </br>
-<p aling='justfy'> Table 3 shows the change in classificaiton result before and after voting. Before voting, the highest scored class was ??. After the weighted-voting happend, however, the highest scored class was changed into ??. This is because the neighbor area gave more weight to the class especially in window-?? and window-??. </p>
+
+<p aling='justfy'> Table 3 shows the change in classificaiton result before and after voting. Before voting, the highest scored class was 'bush' (69.97%). After the weighted-voting happend, however, the highest scored class was changed into 'tree-leaf' (55.52%). This is because the neighbor area gave more weight to the class. Eventhough the confidence has become even lower than before, the actual resort was more accurate when it is compared with ground truth. </p>
 
 ## COMPARISION with No-Voting System
 
-|Ground Truth |No-Voting       |Voting         |
-|-------------|----------------|---------------|
-|![picture](screenshots/result-gt.png)|![picture](screenshots/result-no-voting.png)|![picture](screenshots/result-voting.png)|
-|![picture](screenshots/result2-gt.png)|![picture](screenshots/result2-no-voting.png)|![picture](screenshots/result2-voting.png)|
+|No-Voting       |Voting         |
+|----------------|---------------|
+|![picture](screenshots/result-no-voting.png)|![picture](screenshots/result-voting.png)|
+|![picture](screenshots/result2-no-voting.png)|![picture](screenshots/result2-voting.png)|
 
 Table 4. Comparision of Inference result of Voting and non-Voting. </br>
 
-<p aling='justfy'> As you can see from Table 4, there are some differences in inference result especially in ambiguous area. The used model has ??? of accuracy and ?? of confidence threshold is applied for voting trigger to amphasize the difference between the modes.</p>
+<p aling='justfy'> As you can see from Table 4, there are some differences in inference result especially in ambiguous area. The used model has 91.67% of test accuracy and 0.8 of confidence threshold is applied for voting trigger to amphasize the difference between the modes.</p>
 
 
 
