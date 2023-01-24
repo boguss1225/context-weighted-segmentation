@@ -34,7 +34,6 @@ Figure 2. Different modes for each ambiguous patch.
 
 <p aling='justfy'> When the trained model process all of those modes, the classification result will be varied. This variation will be reflected to the final classification array by adding weights for each mode. </p>
 </br>
-(To be continue...)
 
 ## IMPLEMENTATION of WEIGHTING
 
@@ -76,7 +75,7 @@ Table 3. Change in classification result before and after voting. </br>
 
 Table 4. Comparision of Inference result of Voting and non-Voting. </br>
 
-<p aling='justfy'> As you can see from Table 4, there are some differences in inference result especially in ambiguous area. The used model has 91.67% of test accuracy and 0.8 of confidence threshold is applied for voting trigger to amphasize the difference between the modes.</p>
+<p aling='justfy'> As you can see from Table 4, there are some differences in inference result especially in ambiguous area. The used model has 91.67% of test accuracy and 0.8 of confidence threshold is applied for voting trigger.</p>
 
 
 
