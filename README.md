@@ -42,14 +42,16 @@ In the current implementation, weighting is calculated as following : </br>
 
 $$ R(origin) * 0.4 + R(mid) * 0.3 + R(big) * 0.1 + R(vertical) * 0.1 + R(horizon) * 0.1 $$
 
-<p aling='justfy'> Let R(mode) represent array of inference result where mode is either one of origin, big, mid, vertical, and horizon which represent each of the window sizes used for classification. </p>
+<p aling='justfy'> Let R(mode) represent array of inference result for each class where mode is either one of origin, big, mid, vertical, and horizon which represent each of the window sizes used for classification. </p>
 
 ## TIME COMPLEXITY
 <p aling='justfy'> This methodology is not that efficient when the average confidence of a model (AvConf(model)) is low or confidence threshold (T(conf)) is set to be low because. Both factors will increase the number of this post-processing run. This can be represented as following equation : </p>
 
-$$ Average number of vote = AvConf(model) * T(conf) * N(windows) * N(Classificaiton_run) $$
-$$ N(Classification_run) = (Image_size / patch_size) - padding_area $$ 
-$$ padding_area =  2 * patch_size * (w + y + 2) $$
+$$ Avg Number Of Vote = AvConf(model) * T(conf) * N(modes) * N(ClassificaitonRun) $$
+
+$$ N(ClassificationRun) = (ImageSize / PatchSize) - PaddingArea $$ 
+
+$$ PaddingArea =  2 * PatchSize * (w + y + 2) $$
 
 ## RESULT
 |Threshold-0.7     |Threshold-0.8       |
